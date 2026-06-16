@@ -124,12 +124,38 @@ export default async function IndividualWorkPage({ params }: PageProps) {
   // ---------------------------------------------------------------
 
   return (
-    <main className="min-h-screen bg-slate-50 pb-24 relative">
+    <main className="min-h-screen bg-slate-50 pb-24 relative" id="work-detail-page">
       {isDraft && (
         <div className="bg-amber-600 text-white text-center text-xs font-mono uppercase tracking-widest py-2 sticky top-0 z-50 shadow-md">
           Draft Context Active &mdash; Displaying Unpublished Edits
         </div>
       )}
+
+      <div className="max-w-6xl mx-auto p-6 md:p-12">
+        <section className="mb-6 md:mb-12">
+          <h1 className="text-5xl font-bold text-slate-900">
+            {work.titleEn || work.titleAr || "Untitled"}
+          </h1>
+          <p>{work.creditLineEn}</p>
+        </section>
+      </div>
+
+      <section className="mt-12 p-6 md:p-12">
+        <div className="">
+          about
+        </div>
+        <div>
+          <p className="text-sm text-slate-500 mt-1 mb-6">
+             {work.descriptionEn && (
+                <div className="prose prose-slate max-w-none text-slate-700" dangerouslySetInnerHTML={{ __html: work.descriptionEn }} />
+              )}
+          </p>
+        </div>
+      </section>
+
+      <section id="item-details">
+        
+      </section>
 
       <div className="max-w-6xl mx-auto p-6 md:p-12">
         <Link 
@@ -145,7 +171,7 @@ export default async function IndividualWorkPage({ params }: PageProps) {
           {/* Header Metadata Ribbon */}
           <div className="flex flex-wrap items-center gap-3 mb-8 border-b border-slate-100 pb-6">
             <span className="text-xs font-mono font-bold bg-slate-900 text-white px-3 py-1.5 rounded-md tracking-wider">
-              {work.iabCode}
+              {work.creditLineEn}
             </span>
           </div>
 
