@@ -41,6 +41,8 @@ interface Work {
   iabCode: string;
   titleEn?: string;
   titleAr?: string;
+  creditLineEn?: string;
+  creditLineAr?: string;
   descriptionEn?: string;
   descriptionAr?: string;
   agentCredits?: AgentCredit[];
@@ -154,7 +156,7 @@ export default async function IndividualWorkPage({ params }: PageProps) {
       </section>
 
       <section id="item-details">
-        
+
       </section>
 
       <div className="max-w-6xl mx-auto p-6 md:p-12">
@@ -189,7 +191,7 @@ export default async function IndividualWorkPage({ params }: PageProps) {
             <section className="space-y-6 md:border-r md:pr-12 border-slate-100 text-right" dir="rtl">
               <h1 className="text-3xl font-black text-slate-900 leading-tight font-sans">{work.titleAr || "بدون عنوان"}</h1>
               {work.descriptionAr && (
-                <div className="prose prose-slate max-w-none text-slate-700 font-sans" dangerouslySetInnerHTML={{ __html: work.descriptionAr }} />
+                <span className="prose prose-slate max-w-none text-slate-700 font-sans" dangerouslySetInnerHTML={{ __html: work.descriptionAr }} />
               )}
             </section>
           </div>
